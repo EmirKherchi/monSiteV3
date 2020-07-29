@@ -1,0 +1,58 @@
+/*Index*/
+#LandingPage {
+  height: 100%;
+  text-align: center;
+  display: flex;
+}
+
+#welcome {
+  margin: auto;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+#buttonWelcome {
+  background-color: #000;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 900;
+  border: 1px solid black;
+  transition: 300ms ease;
+  cursor: pointer;
+}
+
+#buttonWelcome:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-400px);
+    opacity: 0;
+  }
+}
+.leftPageUp {
+  animation-duration: 3s;
+  animation-name: slideOut;
+}
+
+body, html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 0;
+  background-color: #fcfcfc;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
