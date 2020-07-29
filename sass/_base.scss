@@ -1,13 +1,14 @@
-$bgcolor : #fcfcfc;
-
-body,html{
-   font-family: Arial, Helvetica, sans-serif;
-   font-size: 14px;
-   padding: 0;
-   background-color: $bgcolor;
-   height: 100%; 
+body,
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 0;
+  background-color: $bgcolor;
+  height: 100%;
+  color: $colortext;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+  color: $colortext;
 }

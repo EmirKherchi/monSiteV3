@@ -1,0 +1,41 @@
+header {
+  #logo {
+    display: block;
+    position: fixed;
+    margin: 0% 5%;
+    padding-top: 1%;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    @include sm {
+      padding: 1em;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+  .nav {
+    a {
+      padding: 1em;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+    ul {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .menu {
+      display: flex; /*1*/
+      flex-direction: row; /*2*/
+      justify-content: center; /*3*/
+      @include sm {
+        flex-flow: column wrap; /*4*/
+      }
+    }
+  }
+}

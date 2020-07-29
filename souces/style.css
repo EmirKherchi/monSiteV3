@@ -1,4 +1,27 @@
 /*Index*/
+.none {
+  display: none;
+}
+
+#logo {
+  opacity: 0;
+  font-size: 18px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
 #LandingPage {
   height: 100%;
   text-align: center;
@@ -12,47 +35,77 @@
   letter-spacing: 3px;
 }
 
-#buttonWelcome {
-  background-color: #000;
-  color: #fff;
-  padding: 15px 30px;
-  font-size: 20px;
-  font-weight: 900;
-  border: 1px solid black;
-  transition: 300ms ease;
-  cursor: pointer;
+.opac {
+  animation-duration: 5000ms;
+  animation-name: appear;
+  animation-fill-mode: forwards;
 }
 
-#buttonWelcome:hover {
-  background-color: #ffffff;
-  color: #000;
-}
-
-@keyframes slideOut {
-  from {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-400px);
-    opacity: 0;
-  }
-}
-.leftPageUp {
+.slideUp {
   animation-duration: 3s;
-  animation-name: slideOut;
+  animation-name: slideUp;
+  animation-fill-mode: forwards;
 }
 
-body, html {
+body,
+html {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   padding: 0;
   background-color: #fcfcfc;
   height: 100%;
+  color: #333;
 }
 
 a {
   text-decoration: none;
+  color: #333;
+}
+
+header #logo {
+  display: block;
+  position: fixed;
+  margin: 0% 5%;
+  padding-top: 1%;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+@media (max-width: 576px) {
+  header #logo {
+    padding: 1em;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+header .nav a {
+  padding: 1em;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+header .nav ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+header .nav .menu {
+  display: flex;
+  /*1*/
+  flex-direction: row;
+  /*2*/
+  justify-content: center;
+  /*3*/
+}
+@media (max-width: 576px) {
+  header .nav .menu {
+    flex-flow: column wrap;
+    /*4*/
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
