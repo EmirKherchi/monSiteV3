@@ -3,6 +3,7 @@
   }
   to {
     opacity: 1;
+    color: $colortext;
   }
 }
 
@@ -36,8 +37,10 @@ header {
     margin: 0% 5%;
     padding-top: 1%;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
+    color: $yellow;
+
     @include sm {
       padding: 1em;
       display: block;
@@ -52,7 +55,8 @@ header {
       text-align: center;
       text-decoration: none;
       &:hover{
-          border-bottom: 2px solid;
+          color: $red;
+          transition: 300ms ease-in-out ;
       }
     }
     ul {
@@ -60,7 +64,7 @@ header {
       padding: 0px;
       list-style: none;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 2px;
       .leftOut {
         transform: translateX(-9999px);

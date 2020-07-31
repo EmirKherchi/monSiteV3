@@ -1,6 +1,6 @@
 body,
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   padding: 0;
   background-color: $bgcolor;
@@ -11,4 +11,35 @@ html {
 a {
   text-decoration: none;
   color: $colortext;
+}
+
+.none {
+  display: none;
+}
+
+.pageBase {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+}
+.marginAuto{
+  margin: auto;
+}
+
+@keyframes ZoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation-duration: 3s;
+  animation-name: ZoomIn;
+  animation-fill-mode: forwards;
 }
