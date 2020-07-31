@@ -1,6 +1,6 @@
 const welcome = document.getElementById("welcome");
 const logo = document.getElementById("logo");
-const work= document.getElementById('works');
+
 
 const landingPage = document.getElementById("LandingPage");
 
@@ -53,6 +53,7 @@ logo.addEventListener('click',function(e){
   addSection("test");
 })
 
+const work= document.getElementById('works');
 work.addEventListener('click',function(e){
   e.preventDefault;
   addSection("works");
