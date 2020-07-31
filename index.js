@@ -1,31 +1,25 @@
 const welcome = document.getElementById("welcome");
 const logo = document.getElementById("logo");
+const work= document.getElementById('works');
 
 const landingPage = document.getElementById("LandingPage");
 
 const worksLink = document.getElementById("works");
 const contactLink = document.getElementById("contact");
-const getSections = document.querySelector('section')
 
-const addSection = (sectionName)=>{
 
-  getSections.remove();
-  const newSection = document.createElement('section');
-  const newDiv = document.createElement('div');
-  newDiv.innerHTML="<h1>Test</h1>";
-  newDiv.classList.add('marginAuto');
+const addSection = (sectionName) => {
+  const getSections = document.querySelector("section");
+  getSections.remove()
+  const newSection = document.createElement("section");
+  const newDiv = document.createElement("div");
+  newDiv.innerHTML = "<h1>Test</h1>";
+  newDiv.classList.add("marginAuto");
   newSection.id = sectionName;
-  document.body.appendChild(newSection)
+  document.body.appendChild(newSection);
   newSection.appendChild(newDiv);
-  newSection.classList.add("pageBase","zoomIn");
-  
-
-}
-
-
-
-
-
+  newSection.classList.add("pageBase", "zoomIn");
+};
 
 window.addEventListener("load", function () {
   setTimeout(function () {
@@ -38,18 +32,31 @@ window.addEventListener("load", function () {
         return setTimeout(function () {
           contactLink.classList.add("animli");
           return setTimeout(function () {
-            // document.body.removeChild(landingPage);
-              return setTimeout(function(){
-              logo.classList.remove('opac');
-              return setTimeout(function(){
-                logo.textContent="< emk />"
+            return setTimeout(function () {
+              logo.classList.remove("opac");
+              return setTimeout(function () {
+                logo.textContent = "< emk />";
                 logo.classList.add("opac");
-                addSection("home")
-              },300)
-            },3000)
+                addSection("home");
+                
+              }, 300);
+            }, 3000);
           }, 100);
         }, 400);
       }, 300);
     }, 1000);
   }, 3000);
 });
+
+logo.addEventListener('click',function(e){
+  e.preventDefault;
+  addSection("test");
+})
+
+work.addEventListener('click',function(e){
+  e.preventDefault;
+  addSection("works");
+  const worksDiv = document.querySelector(".marginAuto");
+  worksDiv.innerHTML="<h1>works<h1>"
+
+})

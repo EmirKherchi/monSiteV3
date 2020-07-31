@@ -9,18 +9,18 @@
 
 @keyframes enterLeft {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
-      transform: translateX(0px);
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 
-.animli{
-    animation-duration: 2000ms;
-    animation-name: enterLeft;
-    animation-fill-mode: forwards; 
+.animli {
+  animation-duration: 2000ms;
+  animation-name: enterLeft;
+  animation-fill-mode: forwards;
 }
 
 .opac {
@@ -40,6 +40,7 @@ header {
     font-weight: 700;
     letter-spacing: 2px;
     color: $yellow;
+    cursor: pointer;
 
     @include sm {
       padding: 1em;
@@ -54,9 +55,9 @@ header {
       display: block;
       text-align: center;
       text-decoration: none;
-      &:hover{
-          color: $red;
-          transition: 300ms ease-in-out ;
+      &:hover {
+        color: $red;
+        transition: 300ms ease-in-out;
       }
     }
     ul {
