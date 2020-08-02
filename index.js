@@ -6,7 +6,6 @@ const landingPage = document.getElementById("LandingPage");
 const worksLink = document.getElementById("works");
 const contactLink = document.getElementById("contact");
 
-
 //Remove // add section
 const addSection = (sectionName) => {
   const getSections = document.querySelector("section");
@@ -26,37 +25,61 @@ const addSection = (sectionName) => {
 
 const renderHome = () => {
   const getSections = document.querySelector("section");
-  if(getSections.id === "home"){
+  if (getSections.id === "home") {
     console.log("nothing happend");
-  }else{
-  addSection("home");
-  const homeMainDiv = document.querySelector(".mainDiv");
-  homeMainDiv.innerHTML = "<h1>Home<h1>";
+  } else {
+    addSection("home");
+    const homeMainDiv = document.querySelector(".mainDiv");
+
+    const leftSide = document.createElement("div");
+    leftSide.id = "home__left";
+
+    const leftSideImg = document.createElement('img');
+    leftSideImg.id = "home__left--image";
+
+    homeMainDiv.appendChild(leftSide);
+
+    leftSide.appendChild(leftSideImg);
+    leftSideImg.src="souces/images/home_ill.png";
+    leftSideImg.alt="illustration emir homepage developpeur web";
+
+    const rightSide = document.createElement('div');
+    rightSide.id = "home__right";
+
+    homeMainDiv.appendChild(rightSide);
+
+    const rightSideTitle = document.createElement("h3");
+    rightSideTitle.id = "home__right--title";
+    rightSide.appendChild(rightSideTitle);
+    rightSideTitle.textContent="Bienvenue sur mon site internet"
+
+    const rightSideDescription = document.createElement('p'); 
+    rightSideDescription.id = "home__right--description";
+    rightSide.appendChild(rightSideDescription);
+    rightSideDescription.textContent="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vitae quam tempora praesentium natus fugiat, assumenda inventore consectetur veritatis officia, sit, quaerat ullam expedita quasi accusamus excepturi! Aut, accusamus iure."
+
+
   }
 };
 const renderWorks = () => {
   const getSections = document.querySelector("section");
-  if(getSections.id === "work"){
+  if (getSections.id === "work") {
     console.log("nothing happend");
-  }else{
-
-  addSection("work");
-  const workMainDiv = document.querySelector(".mainDiv");
-  workMainDiv.innerHTML = "<h1>Work<h1>";
-  return "works";
-
-  };
+  } else {
+    addSection("work");
+    const workMainDiv = document.querySelector(".mainDiv");
+    workMainDiv.innerHTML = "<h1>Work<h1>";
+  }
 };
 const renderContact = () => {
   const getSections = document.querySelector("section");
-  if(getSections.id === "contact"){
+  if (getSections.id === "contact") {
     console.log("nothing happend");
-  }else{
-  addSection("contact");
-  const contactMainDiv = document.querySelector(".mainDiv");
-  contactMainDiv.innerHTML = "<h1>Contact<h1>";
-  return "contact"
-  };
+  } else {
+    addSection("contact");
+    const contactMainDiv = document.querySelector(".mainDiv");
+    contactMainDiv.innerHTML = "<h1>Contact<h1>";
+  }
 };
 
 //page loading
@@ -88,10 +111,8 @@ window.addEventListener("load", function () {
 //events
 logo.addEventListener("click", function (e) {
   e.preventDefault;
-  renderHome();  
+  renderHome();
 });
-
-
 
 worksLink.addEventListener("click", function (e) {
   e.preventDefault;

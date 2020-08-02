@@ -1,0 +1,30 @@
+#home {
+  &__left {
+    margin: 10px;
+    width: 60%;
+    &--image {
+      width: 50%;
+    }
+  }
+  &__right{
+    margin: 10px;
+    &--description{
+        width: 70%;
+        padding-top: 20px;
+        display: block;
+        margin: auto;
+        text-align: left;
+    }
+  }
+  .mainDiv{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 10%;
+    @include sm {
+        flex-flow: column wrap; /*4*/
+      }
+  }
+}

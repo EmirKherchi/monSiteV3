@@ -159,4 +159,36 @@ header .nav .menu {
   }
 }
 
+#home__left {
+  margin: 10px;
+  width: 60%;
+}
+#home__left--image {
+  width: 50%;
+}
+#home__right {
+  margin: 10px;
+}
+#home__right--description {
+  width: 70%;
+  padding-top: 20px;
+  display: block;
+  margin: auto;
+  text-align: left;
+}
+#home .mainDiv {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 10%;
+}
+@media (max-width: 576px) {
+  #home .mainDiv {
+    flex-flow: column wrap;
+    /*4*/
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
