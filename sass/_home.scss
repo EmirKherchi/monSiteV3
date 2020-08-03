@@ -3,10 +3,18 @@
     margin: 10px;
     width: 60%;
     &--image {
-      width: 50%;
+      width: 90%;
     }
   }
   &__right{
+    &--title{
+      font-weight: 800;
+      font-size: 50px;
+      letter-spacing: 1.5px;
+      & span{
+        color: $red;
+      }
+    }
     margin: 10px;
     &--description{
         width: 70%;
@@ -19,6 +27,7 @@
   .mainDiv{
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: column-reverse;
     align-items: center;
     align-content: center;
     justify-content: center;

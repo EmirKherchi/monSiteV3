@@ -40,7 +40,7 @@ const renderHome = () => {
     homeMainDiv.appendChild(leftSide);
 
     leftSide.appendChild(leftSideImg);
-    leftSideImg.src="souces/images/home_ill.png";
+    leftSideImg.src="souces/images/home-ill.svg";
     leftSideImg.alt="illustration emir homepage developpeur web";
 
     const rightSide = document.createElement('div');
@@ -48,10 +48,10 @@ const renderHome = () => {
 
     homeMainDiv.appendChild(rightSide);
 
-    const rightSideTitle = document.createElement("h3");
+    const rightSideTitle = document.createElement("h1");
     rightSideTitle.id = "home__right--title";
     rightSide.appendChild(rightSideTitle);
-    rightSideTitle.textContent="Bienvenue sur mon site internet"
+    rightSideTitle.innerHTML="Emir Kherchi - <span>Développeur Front-end Vue.js</span>"
 
     const rightSideDescription = document.createElement('p'); 
     rightSideDescription.id = "home__right--description";

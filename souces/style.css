@@ -164,10 +164,18 @@ header .nav .menu {
   width: 60%;
 }
 #home__left--image {
-  width: 50%;
+  width: 90%;
 }
 #home__right {
   margin: 10px;
+}
+#home__right--title {
+  font-weight: 800;
+  font-size: 50px;
+  letter-spacing: 1.5px;
+}
+#home__right--title span {
+  color: #DB504A;
 }
 #home__right--description {
   width: 70%;
@@ -179,6 +187,7 @@ header .nav .menu {
 #home .mainDiv {
   display: flex;
   flex-wrap: nowrap;
+  flex-direction: column-reverse;
   align-items: center;
   align-content: center;
   justify-content: center;
