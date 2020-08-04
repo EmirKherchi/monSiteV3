@@ -32,14 +32,33 @@ app.post('/api/create', (req,res) => {
                 link : req.body.link
             })
 
-            return res.status(200).send();
+            return res.status(200).send("projet ajouté à la BDD");
         } catch (error) {
             console.log(error);
             return res.status(500).send(error);
         }
     })();
 });
-//read
+
+
+//read a spécifique projet en utilisant l'Id
+
+//Get
+app.get('/api/read/:id', (req,res) => {
+    (async () =>{
+        try {
+            
+            const document = db.collection('projets').doc(req.params.id);
+            let projet = await document.get();
+            let response = projet.data();
+
+            return res.status(200).send(response);
+        } catch (error) {
+            console.log(error);
+            return res.status(500).send(error);
+        }
+    })();
+});
 
 
 //exports API to firebase cloud functions
