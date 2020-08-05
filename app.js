@@ -68,61 +68,59 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
-   
 
-    const fetchPromise = fetch(
-      "https://us-central1-emk-api.cloudfunctions.net/app/api/read"
-    );
-    fetchPromise
+    fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read")
       .then(function (response) {
         if (response.status !== 200) {
           console.log("erreur: " + response.status);
         }
-        response.json().then(function (projets) {
-          
-          class Job {
-            constructor(title, image, description, link) {
-              this.title = title;
-              this.image = image;
-              this.description = description;
-              this.link = link;
-            }
-            render() {
-              let titleJob = document.createElement("h3");
-              let imageJob = document.createElement("img");
-              let descriptionJob = document.createElement("p");
-              let linkJob = document.createElement("a");
-          
-              titleJob.innerHTML = this.title;
-              imageJob.src = this.image;
-              descriptionJob.innerHTML = this.description;
-              linkJob.href = this.link;
-              linkJob.textContent = this.link;
-          
-              let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
-          
-              elementsJob.forEach((element) => {
-                workMainDiv.appendChild(element);
-              });
-
-              const meteoApp = new Job(
-                projets[0].title,
-                projets[0].imageUrl,
-                projets[0].description,
-                projets[0].link
-              );
-                meteoApp.render();
-            }
-          }
-        });
+        return response.json();
       })
-      .catch(function (error) {
-        console.log(error + " erreur fetch");
+      .then(function (data) {
+        console.log(data);
+        const projets = data;
+
+        class Job {
+          constructor(title, image, description, link) {
+            this.title = title;
+            this.image = image;
+            this.description = description;
+            this.link = link;
+          }
+          render() {
+            let titleJob = document.createElement("h3");
+            let imageJob = document.createElement("img");
+            let descriptionJob = document.createElement("p");
+            let linkJob = document.createElement("a");
+
+            titleJob.innerHTML = this.title;
+            imageJob.src = this.image;
+            descriptionJob.innerHTML = this.description;
+            linkJob.href = this.link;
+            linkJob.textContent = this.link;
+
+            const projectDiv = document.createElement("div");
+            workMainDiv.appendChild(projectDiv);
+
+            let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
+            elementsJob.forEach((element) => {
+              projectDiv.appendChild(element);
+            });
+          }
+        }
+
+        const thisProjet = projets.map(
+          ({ name, imageUrl, description, link }) =>
+            new Job(name, imageUrl, description, link)
+        );
+
+        //application de la methode de classe pour toutes les instances
+
+        for (let i = 0; i < thisProjet.length; i++) {
+          thisProjet[i].render();
+        }
       });
   }
-
-
-
 };
 const renderContact = () => {
   const getSections = document.querySelector("section");
