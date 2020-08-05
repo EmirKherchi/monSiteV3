@@ -34,16 +34,16 @@ const renderHome = () => {
     const leftSide = document.createElement("div");
     leftSide.id = "home__left";
 
-    const leftSideImg = document.createElement('img');
+    const leftSideImg = document.createElement("img");
     leftSideImg.id = "home__left--image";
 
     homeMainDiv.appendChild(leftSide);
 
     leftSide.appendChild(leftSideImg);
-    leftSideImg.src="souces/images/home-ill.svg";
-    leftSideImg.alt="illustration emir homepage developpeur web";
+    leftSideImg.src = "sources/images/home-ill.svg";
+    leftSideImg.alt = "illustration emir homepage developpeur web";
 
-    const rightSide = document.createElement('div');
+    const rightSide = document.createElement("div");
     rightSide.id = "home__right";
 
     homeMainDiv.appendChild(rightSide);
@@ -51,14 +51,14 @@ const renderHome = () => {
     const rightSideTitle = document.createElement("h1");
     rightSideTitle.id = "home__right--title";
     rightSide.appendChild(rightSideTitle);
-    rightSideTitle.innerHTML="Emir Kherchi - <span>Développeur Front-end Vue.js</span>"
+    rightSideTitle.innerHTML =
+      "Emir Kherchi - <span>Développeur Front-end Vue.js</span>";
 
-    const rightSideDescription = document.createElement('p'); 
+    const rightSideDescription = document.createElement("p");
     rightSideDescription.id = "home__right--description";
     rightSide.appendChild(rightSideDescription);
-    rightSideDescription.textContent="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vitae quam tempora praesentium natus fugiat, assumenda inventore consectetur veritatis officia, sit, quaerat ullam expedita quasi accusamus excepturi! Aut, accusamus iure."
-
-
+    rightSideDescription.textContent =
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vitae quam tempora praesentium natus fugiat, assumenda inventore consectetur veritatis officia, sit, quaerat ullam expedita quasi accusamus excepturi! Aut, accusamus iure.";
   }
 };
 const renderWorks = () => {
@@ -68,8 +68,61 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
-    workMainDiv.innerHTML = "<h1>Work<h1>";
+   
+
+    const fetchPromise = fetch(
+      "https://us-central1-emk-api.cloudfunctions.net/app/api/read"
+    );
+    fetchPromise
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log("erreur: " + response.status);
+        }
+        response.json().then(function (projets) {
+          
+          class Job {
+            constructor(title, image, description, link) {
+              this.title = title;
+              this.image = image;
+              this.description = description;
+              this.link = link;
+            }
+            render() {
+              let titleJob = document.createElement("h3");
+              let imageJob = document.createElement("img");
+              let descriptionJob = document.createElement("p");
+              let linkJob = document.createElement("a");
+          
+              titleJob.innerHTML = this.title;
+              imageJob.src = this.image;
+              descriptionJob.innerHTML = this.description;
+              linkJob.href = this.link;
+              linkJob.textContent = this.link;
+          
+              let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
+          
+              elementsJob.forEach((element) => {
+                workMainDiv.appendChild(element);
+              });
+
+              const meteoApp = new Job(
+                projets[0].title,
+                projets[0].imageUrl,
+                projets[0].description,
+                projets[0].link
+              );
+                meteoApp.render();
+            }
+          }
+        });
+      })
+      .catch(function (error) {
+        console.log(error + " erreur fetch");
+      });
   }
+
+
+
 };
 const renderContact = () => {
   const getSections = document.querySelector("section");
@@ -123,20 +176,3 @@ contactLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderContact();
 });
-
-
-
-// const fetchPromise = fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read");
-
-// fetchPromise
-//   .then(function (response) {
-//     if (response.status !== 200) {
-//       console.log("erreur: " + response.status);
-//     }
-//     response.json().then(function (data) {
-//       console.log(data);      
-//     });
-//   })
-//   .catch(function (error) {
-//     console.log(error + " erreur fetch");
-//   });
