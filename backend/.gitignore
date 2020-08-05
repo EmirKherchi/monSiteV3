@@ -64,11 +64,5 @@ node_modules/
 # dotenv environment variables file
 .env
 
-# private API Key
-
-privatekey
-
-# nodes
-
-
-node_modules
+permission.json
+functions/permission.json

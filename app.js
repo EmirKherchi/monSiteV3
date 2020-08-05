@@ -123,3 +123,20 @@ contactLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderContact();
 });
+
+
+
+// const fetchPromise = fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read");
+
+// fetchPromise
+//   .then(function (response) {
+//     if (response.status !== 200) {
+//       console.log("erreur: " + response.status);
+//     }
+//     response.json().then(function (data) {
+//       console.log(data);      
+//     });
+//   })
+//   .catch(function (error) {
+//     console.log(error + " erreur fetch");
+//   });

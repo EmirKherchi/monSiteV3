@@ -1,25 +1,22 @@
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
+var admin = require("firebase-admin");
 
-var serviceAccount = require("../key.json");
+var serviceAccount = require("./permission.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://emk-website-9d4a3.firebaseio.com",
+  databaseURL: "https://emk-api.firebaseio.com",
 });
 
-const express = require("express");
-const app = express();
 const db = admin.firestore();
 
+const functions = require("firebase-functions");
+
+const express = require("express");
 const cors = require("cors");
-const { response } = require("express");
+const app = express();
 app.use(cors({ origin: true }));
 
 //routes
-app.get("/api", (req, res) => {
-  return res.status(200).send("hello world");
-});
 
 //post
 app.post("/api/create", (req, res) => {
@@ -92,5 +89,37 @@ app.get("/api/read", (req, res) => {
   })();
 });
 
-//exports API to firebase cloud functions
+// update
+app.put("/api/update/:id", (req, res) => {
+  (async () => {
+    try {
+      const document = db.collection("projets").doc(req.params.id);
+      await document.update({
+        name: req.body.name,
+        imageUrl: req.body.imageUrl,
+        description: req.body.description,
+        link: req.body.link,
+      });
+      return res.status(200).send("projet mis à jour");
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
+  })();
+});
+
+// delete
+app.delete("/api/delete/:id", (req, res) => {
+  (async () => {
+    try {
+      const document = db.collection("projets").doc(req.params.id);
+      await document.delete();
+      return res.status(200).send("projet supprimé");
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
+  })();
+});
+
 exports.app = functions.https.onRequest(app);
