@@ -21,7 +21,7 @@ const addSection = (sectionName) => {
   newSection.classList.add("pageBase", "zoomIn");
 };
 
-//page render
+//pages render
 
 const renderHome = () => {
   const getSections = document.querySelector("section");
@@ -69,6 +69,8 @@ const renderWorks = () => {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
 
+    //fetch
+
     fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read")
       .then(function (response) {
         if (response.status !== 200) {
@@ -77,7 +79,7 @@ const renderWorks = () => {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        //console.log(data);
         const projets = data;
 
         class Job {
@@ -88,18 +90,21 @@ const renderWorks = () => {
             this.link = link;
           }
           render() {
-            let titleJob = document.createElement("h3");
+            let titleJob = document.createElement("h2");
             let imageJob = document.createElement("img");
             let descriptionJob = document.createElement("p");
             let linkJob = document.createElement("a");
+            linkJob.target ='_blank';
+            imageJob.alt = 'Image représentant le projet de emir développeur web front end';
+            linkJob.innerHTML ="Voir le projet";
 
             titleJob.innerHTML = this.title;
             imageJob.src = this.image;
             descriptionJob.innerHTML = this.description;
             linkJob.href = this.link;
-            linkJob.textContent = this.link;
 
             const projectDiv = document.createElement("div");
+            projectDiv.classList.add('projectDiv');
             workMainDiv.appendChild(projectDiv);
 
             let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];

@@ -1,0 +1,58 @@
+#work {
+  .mainDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    @include md {
+      flex-direction: column;
+    }
+    .projectDiv {
+        flex: 1 0 25%;
+      background-color: #fff;
+      margin: 3%;
+      padding: 3% 0 5% 0;
+      border-radius: 3px;
+      -webkit-box-shadow: 4px 6px 17px -4px lighten($colortext,50%);
+      -moz-box-shadow: 4px 6px 17px -4px lighten($colortext,50%);
+      box-shadow: 4px 6px 17px -4px lighten($colortext,50%);
+      @include md{
+        padding: 3% 0 8% 0;
+      }
+    }
+    h3 {
+      color: $red;
+      font-weight: 600;
+      
+    }
+    img {
+      width: 60%;
+      border-radius: 3px;
+      margin-top: 5%;
+    }
+    p {
+      width: 50%;
+      height: 150px;
+      margin: 5% auto;
+      text-align: left;
+      line-height: 22px;
+    }
+    a {
+        font-size: 1.5em;
+        color: $bgcolor;
+        background-color: $red;
+        border: 1px solid $red;
+        border-radius: 5px;
+        padding: 2% 5%;
+        font-weight: 600;
+        transition: ease-in-out 300ms;
+      &:hover{
+          color: $red;
+          font-weight: 600;
+          background-color: $bgcolor;
+      }
+    }
+  }
+}
