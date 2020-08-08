@@ -94,9 +94,10 @@ const renderWorks = () => {
             let imageJob = document.createElement("img");
             let descriptionJob = document.createElement("p");
             let linkJob = document.createElement("a");
-            linkJob.target ='_blank';
-            imageJob.alt = 'Image représentant le projet de emir développeur web front end';
-            linkJob.innerHTML ="Voir le projet";
+            linkJob.target = "_blank";
+            linkJob.innerHTML = "Voir le projet";
+            imageJob.alt =
+              "Image représentant le projet de emir développeur web front end";
 
             titleJob.innerHTML = this.title;
             imageJob.src = this.image;
@@ -104,7 +105,7 @@ const renderWorks = () => {
             linkJob.href = this.link;
 
             const projectDiv = document.createElement("div");
-            projectDiv.classList.add('projectDiv');
+            projectDiv.classList.add("projectDiv");
             workMainDiv.appendChild(projectDiv);
 
             let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
@@ -145,6 +146,7 @@ window.addEventListener("load", function () {
     return setTimeout(function () {
       logo.classList.add("opac");
       return setTimeout(function () {
+        renderHome();
         worksLink.classList.add("animli");
         return setTimeout(function () {
           contactLink.classList.add("animli");
@@ -154,7 +156,6 @@ window.addEventListener("load", function () {
               return setTimeout(function () {
                 logo.textContent = "< emk />";
                 logo.classList.add("opac");
-                renderHome();
               }, 300);
             }, 3000);
           }, 100);
