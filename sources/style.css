@@ -119,8 +119,10 @@ header #logo {
   header #logo {
     padding: 1em;
     display: block;
+    position: relative;
     text-align: center;
     text-decoration: none;
+    font-weight: 600;
   }
 }
 header .nav a {

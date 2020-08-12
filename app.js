@@ -68,6 +68,7 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
+    logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
 
     //fetch
 
@@ -154,6 +155,7 @@ const renderContact = () => {
   } else {
     addSection("contact");
     const contactMainDiv = document.querySelector(".mainDiv");
+    logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
     contactMainDiv.innerHTML = "<h1>Contact<h1>";
   }
 };
@@ -176,7 +178,7 @@ window.addEventListener("load", function () {
                 logo.textContent = "< emk />";
                 logo.classList.add("opac");
               }, 300);
-            }, 3000);
+            }, 2000);
           }, 100);
         }, 400);
       }, 300);
@@ -195,11 +197,11 @@ logo.addEventListener("click", function (e) {
 worksLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderWorks();
-  logo.textContent = "< Home";
+  //logo.textContent = "< Home";
 });
 
 contactLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderContact();
-  logo.textContent = "< Home";
+
 });
