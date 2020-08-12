@@ -202,26 +202,26 @@ header .nav .menu {
 
 @keyframes viewProjectUp {
   from {
-    transform: translateY(-100px);
+    transform: translateY(-200px);
   }
   to {
     transform: translateY(0px);
-    color: #DB504A;
   }
 }
 .viewProjectUp {
-  animation-duration: 1s;
+  animation-duration: 0.6s;
   animation-name: viewProjectUp;
   animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 
 .transitionScale {
-  transform: scale(1.1, 1.1);
+  transform: scale(1.1);
   transition: all 0.6s linear;
 }
 
 .transitionScaleOff {
-  transform: scale(1, 1);
+  transform: scale(1);
   transition: all 0.6s linear;
 }
 
@@ -236,6 +236,7 @@ header .nav .menu {
 @media (max-width: 768px) {
   #work .mainDiv {
     flex-direction: column;
+    padding: 0px 15px;
   }
 }
 #work .mainDiv .projectDiv {
@@ -252,14 +253,15 @@ header .nav .menu {
 @media (max-width: 768px) {
   #work .mainDiv .projectDiv {
     padding: 3% 0 8% 0;
+    margin: 50px 0px;
   }
 }
-#work .mainDiv h3 {
+#work .mainDiv h2 {
   color: #DB504A;
   font-weight: 600;
 }
 #work .mainDiv img {
-  width: 100%;
+  width: 90%;
   border-radius: 3px;
 }
 #work .mainDiv p {

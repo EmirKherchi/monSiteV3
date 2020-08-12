@@ -68,7 +68,6 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
-  
 
     //fetch
 
@@ -113,25 +112,22 @@ const renderWorks = () => {
             workMainDiv.appendChild(projectDiv);
             projectDiv.appendChild(imageJob);
 
-            
-            
             let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
-            let elementsToRemove = [titleJob,descriptionJob,linkJob]
+            let elementsToRemove = [titleJob, descriptionJob, linkJob];
 
-            imageJob.addEventListener("mouseenter", function () {
+            projectDiv.addEventListener("mouseenter", function () {
               elementsJob.forEach((element) => {
-               
                 projectDiv.appendChild(element);
-                projectDiv.classList.add('transitionScale')
-                titleJob.classList.add('viewProjectUp');
-                projectDiv.classList.remove('transitionScaleOff')
-              
+                element.classList.add("viewProjectUp");
               });
-              projectDiv.addEventListener('mouseleave',function(){
+              projectDiv.classList.remove("transitionScaleOff");
+              projectDiv.classList.add("transitionScale");
+
+              projectDiv.addEventListener("mouseleave", function () {
+                projectDiv.classList.remove("transitionScale");
+                projectDiv.classList.add("transitionScaleOff");
                 elementsToRemove.forEach((element) => {
                   projectDiv.removeChild(element);
-                  projectDiv.classList.remove('transitionScale')
-                  projectDiv.classList.add('transitionScaleOff')
                 });
               });
             });
@@ -192,14 +188,18 @@ window.addEventListener("load", function () {
 logo.addEventListener("click", function (e) {
   e.preventDefault;
   renderHome();
+  logo.textContent = "< emk />";
+ 
 });
 
 worksLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderWorks();
+  logo.textContent = "< Home";
 });
 
 contactLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderContact();
+  logo.textContent = "< Home";
 });
