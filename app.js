@@ -68,6 +68,7 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
+  
 
     //fetch
 
@@ -91,26 +92,48 @@ const renderWorks = () => {
           }
           render() {
             let titleJob = document.createElement("h2");
-            let imageJob = document.createElement("img");
             let descriptionJob = document.createElement("p");
             let linkJob = document.createElement("a");
             linkJob.target = "_blank";
             linkJob.innerHTML = "Voir le projet";
+
+            let imageJob = document.createElement("img");
+
             imageJob.alt =
               "Image représentant le projet de emir développeur web front end";
 
-            titleJob.innerHTML = this.title;
             imageJob.src = this.image;
+            titleJob.innerHTML = this.title;
+
             descriptionJob.innerHTML = this.description;
             linkJob.href = this.link;
 
             const projectDiv = document.createElement("div");
             projectDiv.classList.add("projectDiv");
             workMainDiv.appendChild(projectDiv);
+            projectDiv.appendChild(imageJob);
 
+            
+            
             let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
-            elementsJob.forEach((element) => {
-              projectDiv.appendChild(element);
+            let elementsToRemove = [titleJob,descriptionJob,linkJob]
+
+            imageJob.addEventListener("mouseenter", function () {
+              elementsJob.forEach((element) => {
+               
+                projectDiv.appendChild(element);
+                projectDiv.classList.add('transitionScale')
+                titleJob.classList.add('viewProjectUp');
+                projectDiv.classList.remove('transitionScaleOff')
+              
+              });
+              projectDiv.addEventListener('mouseleave',function(){
+                elementsToRemove.forEach((element) => {
+                  projectDiv.removeChild(element);
+                  projectDiv.classList.remove('transitionScale')
+                  projectDiv.classList.add('transitionScaleOff')
+                });
+              });
             });
           }
         }
