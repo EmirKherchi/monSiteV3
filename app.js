@@ -68,8 +68,7 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
-    const allimg = [];
-    const allProjectDiv = [];
+  
 
     //fetch
 
@@ -114,18 +113,25 @@ const renderWorks = () => {
             workMainDiv.appendChild(projectDiv);
             projectDiv.appendChild(imageJob);
 
-            allimg.push(imageJob);
-            allProjectDiv.push(document.querySelector(".projectDiv"));
+            
+            
             let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
             let elementsToRemove = [titleJob,descriptionJob,linkJob]
 
             imageJob.addEventListener("mouseenter", function () {
               elementsJob.forEach((element) => {
+               
                 projectDiv.appendChild(element);
+                projectDiv.classList.add('transitionScale')
+                titleJob.classList.add('viewProjectUp');
+                projectDiv.classList.remove('transitionScaleOff')
+              
               });
               projectDiv.addEventListener('mouseleave',function(){
                 elementsToRemove.forEach((element) => {
                   projectDiv.removeChild(element);
+                  projectDiv.classList.remove('transitionScale')
+                  projectDiv.classList.add('transitionScaleOff')
                 });
               });
             });

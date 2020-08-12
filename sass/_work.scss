@@ -1,3 +1,31 @@
+@keyframes viewProjectUp {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0px);
+    color: $red;
+  }
+}
+
+.viewProjectUp {
+  animation-duration: 1s;
+  animation-name: viewProjectUp;
+  animation-fill-mode: forwards;
+}
+
+.transitionScale{
+  transform: scale(1.1,1.1);
+  transition: all 0.6s linear;
+}
+.transitionScaleOff{
+  transform: scale(1,1);
+  transition: all 0.6s linear;
+}
+
+
+
+
 #work {
   .mainDiv {
     display: flex;
@@ -10,49 +38,50 @@
       flex-direction: column;
     }
     .projectDiv {
-        flex: 1 0 25%;
+      flex: 1 0 25%;
       background-color: #fff;
       margin: 3%;
-     // padding: 3% 0 5% 0;
+      padding: 1% 0 2% 0;
       border-radius: 3px;
-      -webkit-box-shadow: 4px 6px 17px -4px lighten($colortext,50%);
-      -moz-box-shadow: 4px 6px 17px -4px lighten($colortext,50%);
-      box-shadow: 4px 6px 17px -4px lighten($colortext,50%);
-      @include md{
+      -webkit-box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
+      -moz-box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
+      box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
+      overflow: hidden;
+      @include md {
         padding: 3% 0 8% 0;
       }
     }
     h3 {
       color: $red;
       font-weight: 600;
-      
     }
     img {
       width: 100%;
-      
+
       border-radius: 3px;
       //margin-top: 5%;
     }
     p {
-      width: 50%;
+      width: 70%;
       height: 150px;
       margin: 5% auto;
       text-align: left;
       line-height: 22px;
     }
     a {
-        font-size: 1.5em;
-        color: $bgcolor;
-        background-color: $red;
-        border: 1px solid $red;
-        border-radius: 5px;
-        padding: 2% 5%;
+      font-size: 1.5em;
+      color: $bgcolor;
+      background-color: $red;
+      border: 1px solid $red;
+      border-radius: 5px;
+      padding: 2% 5%;
+      font-weight: 600;
+      transition: ease-in-out 300ms;
+
+      &:hover {
+        color: $red;
         font-weight: 600;
-        transition: ease-in-out 300ms;
-      &:hover{
-          color: $red;
-          font-weight: 600;
-          background-color: $bgcolor;
+        background-color: $bgcolor;
       }
     }
   }
