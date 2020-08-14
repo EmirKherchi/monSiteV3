@@ -3,11 +3,11 @@ monSiteV3
 Single Web App 
 
 
-Portfolio de mes projects 
+Portfolio de mes projets 
 
-*** --- > Front end effectuer avec html scss et javascript natif
+*** --- > Front end effectué avec html scss et javascript natif
 
-*** --- > backend effectuer avec firebase en BDD et express.js / API Rest
+*** --- > backend effectué avec firebase en BDD et express.js / API Rest
 
 
 
