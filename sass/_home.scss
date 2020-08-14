@@ -1,39 +1,51 @@
 #home {
-  &__left {
-    margin: 10px;
+  &__ill {
+    margin: auto;
     width: 60%;
     &--image {
       width: 90%;
     }
   }
-  &__right{
-    &--title{
+  &__description {
+    &--title {
       font-weight: 800;
       font-size: 50px;
       letter-spacing: 1.5px;
-      & span{
+      & span {
         color: $red;
       }
     }
     margin: 10px;
-    &--description{
-        width: 70%;
-        padding-top: 20px;
-        display: block;
-        margin: auto;
-        text-align: left;
+    &--text {
+      width: 70%;
+      padding-top: 20px;
+      display: block;
+      margin: auto;
+      text-align: left;
+      margin-bottom: 90px;
+    }
+    a {
+      font-size: 1.5em;
+      color: $bgcolor;
+      background-color: $red;
+      border: 1px solid $red;
+      border-radius: 5px;
+      padding: 1% 3%;
+      font-weight: 600;
+      transition: ease-in-out 300ms;
+     
+
+      &:hover {
+        color: $red;
+        font-weight: 600;
+        background-color: $bgcolor;
+      }
     }
   }
-  .mainDiv{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column-reverse;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    margin: 10%;
-    @include sm {
-        flex-flow: column wrap; /*4*/
-      }
+  .mainDiv {
+    margin: 5%;
+    @include md {
+      margin: 10%;
+    }
   }
 }

@@ -32,10 +32,10 @@ const renderHome = () => {
     const homeMainDiv = document.querySelector(".mainDiv");
 
     const leftSide = document.createElement("div");
-    leftSide.id = "home__left";
+    leftSide.id = "home__ill";
 
     const leftSideImg = document.createElement("img");
-    leftSideImg.id = "home__left--image";
+    leftSideImg.id = "home__ill--image";
 
     homeMainDiv.appendChild(leftSide);
 
@@ -44,21 +44,27 @@ const renderHome = () => {
     leftSideImg.alt = "illustration emir homepage developpeur web";
 
     const rightSide = document.createElement("div");
-    rightSide.id = "home__right";
+    rightSide.id = "home__description";
 
     homeMainDiv.appendChild(rightSide);
 
     const rightSideTitle = document.createElement("h1");
-    rightSideTitle.id = "home__right--title";
+    rightSideTitle.id = "home__description--title";
     rightSide.appendChild(rightSideTitle);
     rightSideTitle.innerHTML =
-      "Emir Kherchi - <span>Développeur Front-end Vue.js</span>";
+      "Emir Kherchi - <span>Développeur Front-end</span>";
 
     const rightSideDescription = document.createElement("p");
-    rightSideDescription.id = "home__right--description";
+    rightSideDescription.id = "home__description--text";
     rightSide.appendChild(rightSideDescription);
     rightSideDescription.textContent =
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vitae quam tempora praesentium natus fugiat, assumenda inventore consectetur veritatis officia, sit, quaerat ullam expedita quasi accusamus excepturi! Aut, accusamus iure.";
+
+    const btnCv =  document.createElement("a");
+    btnCv.target = "_blank";
+    btnCv.innerHTML = "Mon Cv en ligne";
+    btnCv.href = "https://emircv.netlify.app/";
+    rightSide.appendChild(btnCv);
   }
 };
 const renderWorks = () => {
@@ -191,7 +197,6 @@ logo.addEventListener("click", function (e) {
   e.preventDefault;
   renderHome();
   logo.textContent = "< emk />";
- 
 });
 
 worksLink.addEventListener("click", function (e) {
@@ -203,5 +208,4 @@ worksLink.addEventListener("click", function (e) {
 contactLink.addEventListener("click", function (e) {
   e.preventDefault;
   renderContact();
-
 });
