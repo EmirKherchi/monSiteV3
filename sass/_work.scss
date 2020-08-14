@@ -17,6 +17,8 @@
 .transitionScale {
   transform: scale(1.1);
   transition: all 0.6s linear;
+//voir pour presentation des project modal ?
+  z-index: 100000;
 }
 .transitionScaleOff {
   transform: scale(1);
@@ -45,6 +47,7 @@
       -moz-box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
       box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
       overflow: hidden;
+      z-index: 10;
       @include md {
         padding: 3% 0 8% 0;
         margin: 50px 0px;
