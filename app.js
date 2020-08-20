@@ -206,7 +206,7 @@ const renderContact = () => {
     const label = document.createElement("label");
     label.setAttribute("for", "content");
     label.setAttribute("id", "content");
-    label.textContent = "message";
+    label.textContent = "Message";
     const textArea = document.createElement("textarea");
     textArea.setAttribute("id", "content");
     textArea.setAttribute("type", "text");
@@ -220,6 +220,22 @@ const renderContact = () => {
     const btnForm = document.createElement("button");
     btnForm.textContent = "Envoyer";
     divLabel.appendChild(btnForm);
+
+    //function send form
+    function sendEmail() {
+      Email.send({
+        SecureToken : "56be052d-0061-4712-ab5d-449c30d9dade",
+      To : 'contact@ekherchi.fr',
+      From : "contact@ekherchi.fr",
+      Subject : "text",
+      Body : "test mon sitev3",
+      }).then(
+        message => alert("mail sent successfully")
+      );
+    }
+    
+
+    btnForm.addEventListener("click", sendEmail())
   }
 };
 

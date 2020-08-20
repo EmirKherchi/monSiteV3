@@ -1,5 +1,4 @@
 #contactPage {
-   
   .mainDiv {
     padding: 30px 0 50px 0;
     text-align: center;
@@ -14,11 +13,15 @@
         label {
           display: block;
           padding: 0;
-          margin: 0;
+          margin-bottom: 15px;
           background-color: #fff;
+          font-weight: 600;
         }
       }
       .id {
+        & > div {
+          margin-bottom: 50px;
+        }
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
@@ -47,13 +50,16 @@
           label {
             display: block;
             padding: 0;
-            margin: 0;
+            margin-left: 26px;
+            margin-bottom: 15px;
+            font-weight: 600;
           }
           input[name="email"],
           input[name="name"] {
             width: 80%;
             height: 40px;
             display: block;
+            margin-bottom: 15px;
             margin: auto;
           }
         }
@@ -65,6 +71,7 @@
           height: 40px;
         }
       }
+
       .content {
         textarea {
           width: 100%;
@@ -86,6 +93,9 @@
             background-color: $bgcolor;
           }
         }
+      }
+      input {
+        margin-bottom: 50px;
       }
     }
   }

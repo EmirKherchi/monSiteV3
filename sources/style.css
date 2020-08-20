@@ -318,8 +318,9 @@ header .nav .menu {
 #contactPage .mainDiv form .content label {
   display: block;
   padding: 0;
-  margin: 0;
+  margin-bottom: 15px;
   background-color: #fff;
+  font-weight: 600;
 }
 #contactPage .mainDiv form .id {
   display: -ms-flexbox;
@@ -344,6 +345,9 @@ header .nav .menu {
   width: 80%;
   margin: 0 auto;
 }
+#contactPage .mainDiv form .id > div {
+  margin-bottom: 50px;
+}
 #contactPage .mainDiv form .id .name,
 #contactPage .mainDiv form .id .email {
   display: inline-block;
@@ -353,7 +357,9 @@ header .nav .menu {
 #contactPage .mainDiv form .id .email label {
   display: block;
   padding: 0;
-  margin: 0;
+  margin-left: 26px;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 #contactPage .mainDiv form .id .name input[name=email],
 #contactPage .mainDiv form .id .name input[name=name],
@@ -362,6 +368,7 @@ header .nav .menu {
   width: 80%;
   height: 40px;
   display: block;
+  margin-bottom: 15px;
   margin: auto;
 }
 #contactPage .mainDiv form .subject {
@@ -389,6 +396,9 @@ header .nav .menu {
   color: #DB504A;
   font-weight: 600;
   background-color: #FCFCFC;
+}
+#contactPage .mainDiv form input {
+  margin-bottom: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
