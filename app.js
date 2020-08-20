@@ -60,7 +60,7 @@ const renderHome = () => {
     rightSideDescription.textContent =
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vitae quam tempora praesentium natus fugiat, assumenda inventore consectetur veritatis officia, sit, quaerat ullam expedita quasi accusamus excepturi! Aut, accusamus iure.";
 
-    const btnCv =  document.createElement("a");
+    const btnCv = document.createElement("a");
     btnCv.target = "_blank";
     btnCv.innerHTML = "Mon Cv en ligne";
     btnCv.href = "https://emircv.netlify.app/";
@@ -154,6 +154,7 @@ const renderWorks = () => {
       });
   }
 };
+
 const renderContact = () => {
   const getSections = document.querySelector("section");
   if (getSections.id === "contact") {
@@ -162,7 +163,63 @@ const renderContact = () => {
     addSection("contact");
     const contactMainDiv = document.querySelector(".mainDiv");
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
-    contactMainDiv.innerHTML = "<h1>Contact<h1>";
+
+    //création du formulaire et du titre et ajout à main div
+    const titleContact = document.createElement("h2");
+    titleContact.textContent = "Contact";
+    const formContact = document.createElement("form");
+    formContact.classList.add("form");
+    contactMainDiv.appendChild(titleContact);
+    contactMainDiv.appendChild(formContact);
+
+    //création des inputs
+    const mainFormDiv = document.createElement("div");
+    mainFormDiv.classList.add("id");
+    formContact.appendChild(mainFormDiv);
+
+    const labelForm = (labelName, frenchLabelName) => {
+      const divLabel = document.createElement("div");
+      divLabel.classList.add(labelName);
+      mainFormDiv.appendChild(divLabel);
+
+      const label = document.createElement("label");
+      label.setAttribute("for", labelName);
+      label.textContent = frenchLabelName;
+
+      const input = document.createElement("input");
+      input.setAttribute("id", labelName);
+      input.setAttribute("type", "text");
+      input.setAttribute("name", labelName);
+
+      divLabel.appendChild(label);
+      divLabel.appendChild(input);
+    };
+    labelForm("name", "Nom");
+    labelForm("email", "E-mail");
+    labelForm("subject", "Sujet");
+
+     //création du text area
+    const divLabel = document.createElement("div");
+    divLabel.classList.add("content");
+    mainFormDiv.appendChild(divLabel);
+    const label = document.createElement("label");
+    label.setAttribute("for", "content");
+    label.setAttribute("id", "content");
+    label.textContent = "message";
+    const textArea = document.createElement("textarea");
+    textArea.setAttribute("id", "content");
+    textArea.setAttribute("type", "text");
+    textArea.setAttribute("name", "content");
+    textArea.setAttribute("cols", 30);
+    textArea.setAttribute("rows", 10);
+    divLabel.appendChild(label);
+    divLabel.appendChild(textArea);
+
+    //création du button
+    const btnForm = document.createElement("button");
+    btnForm.textContent="envoyer";
+    divLabel.appendChild(btnForm)
+
   }
 };
 
