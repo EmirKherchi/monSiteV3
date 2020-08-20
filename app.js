@@ -157,20 +157,21 @@ const renderWorks = () => {
 
 const renderContact = () => {
   const getSections = document.querySelector("section");
-  if (getSections.id === "contact") {
+  if (getSections.id === "contactPage") {
     console.log("nothing happend");
   } else {
-    addSection("contact");
+    addSection("contactPage");
     const contactMainDiv = document.querySelector(".mainDiv");
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
-
+    //const contactPage = document.getElementById('contactPage');
     //création du formulaire et du titre et ajout à main div
-    const titleContact = document.createElement("h2");
-    titleContact.textContent = "Contact";
+   // const titleContact = document.createElement("h2");
+    //titleContact.textContent = "Contact";
     const formContact = document.createElement("form");
     formContact.classList.add("form");
-    contactMainDiv.appendChild(titleContact);
+    
     contactMainDiv.appendChild(formContact);
+    //contactPage.appendChild(titleContact);
 
     //création des inputs
     const mainFormDiv = document.createElement("div");
@@ -198,7 +199,7 @@ const renderContact = () => {
     labelForm("email", "E-mail");
     labelForm("subject", "Sujet");
 
-     //création du text area
+    //création du text area
     const divLabel = document.createElement("div");
     divLabel.classList.add("content");
     mainFormDiv.appendChild(divLabel);
@@ -217,9 +218,8 @@ const renderContact = () => {
 
     //création du button
     const btnForm = document.createElement("button");
-    btnForm.textContent="envoyer";
-    divLabel.appendChild(btnForm)
-
+    btnForm.textContent = "Envoyer";
+    divLabel.appendChild(btnForm);
   }
 };
 

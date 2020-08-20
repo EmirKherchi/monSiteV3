@@ -300,4 +300,95 @@ header .nav .menu {
   background-color: #FCFCFC;
 }
 
+#contactPage .mainDiv {
+  padding: 30px 0 50px 0;
+  text-align: center;
+}
+#contactPage .mainDiv form {
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px 0;
+}
+#contactPage .mainDiv form .subject,
+#contactPage .mainDiv form .content {
+  width: 80%;
+  margin: 0 auto;
+}
+#contactPage .mainDiv form .subject label,
+#contactPage .mainDiv form .content label {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+#contactPage .mainDiv form .id {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 80px;
+  width: 80%;
+  margin: 0 auto;
+}
+#contactPage .mainDiv form .id .name,
+#contactPage .mainDiv form .id .email {
+  display: inline-block;
+  width: 45%;
+}
+#contactPage .mainDiv form .id .name label,
+#contactPage .mainDiv form .id .email label {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+#contactPage .mainDiv form .id .name input[name=email],
+#contactPage .mainDiv form .id .name input[name=name],
+#contactPage .mainDiv form .id .email input[name=email],
+#contactPage .mainDiv form .id .email input[name=name] {
+  width: 80%;
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+#contactPage .mainDiv form .subject {
+  height: 62px;
+}
+#contactPage .mainDiv form .subject input[name=subject] {
+  width: 100%;
+  height: 40px;
+}
+#contactPage .mainDiv form .content textarea {
+  width: 100%;
+  resize: none;
+}
+#contactPage .mainDiv form .content button {
+  cursor: pointer;
+  color: #FCFCFC;
+  background-color: #DB504A;
+  border: 1px solid #DB504A;
+  border-radius: 5px;
+  padding: 1% 3%;
+  font-weight: 600;
+  transition: ease-in-out 300ms;
+}
+#contactPage .mainDiv form .content button:hover {
+  color: #DB504A;
+  font-weight: 600;
+  background-color: #FCFCFC;
+}
+
 /*# sourceMappingURL=style.css.map */
