@@ -165,11 +165,11 @@ const renderContact = () => {
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
     //const contactPage = document.getElementById('contactPage');
     //création du formulaire et du titre et ajout à main div
-   // const titleContact = document.createElement("h2");
+    // const titleContact = document.createElement("h2");
     //titleContact.textContent = "Contact";
     const formContact = document.createElement("form");
     formContact.classList.add("form");
-    
+
     contactMainDiv.appendChild(formContact);
     //contactPage.appendChild(titleContact);
 
@@ -205,7 +205,6 @@ const renderContact = () => {
     mainFormDiv.appendChild(divLabel);
     const label = document.createElement("label");
     label.setAttribute("for", "content");
-    label.setAttribute("id", "content");
     label.textContent = "Message";
     const textArea = document.createElement("textarea");
     textArea.setAttribute("id", "content");
@@ -223,19 +222,38 @@ const renderContact = () => {
 
     //function send form
     function sendEmail() {
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const subject = document.getElementById("subject");
+      const content = document.getElementById("content");
+      let thanks = document.createElement("h1");
       Email.send({
-        SecureToken : "56be052d-0061-4712-ab5d-449c30d9dade",
-      To : 'contact@ekherchi.fr',
-      From : "contact@ekherchi.fr",
-      Subject : "text",
-      Body : "test mon sitev3",
+        SecureToken: "56be052d-0061-4712-ab5d-449c30d9dade",
+        To: "contact@ekherchi.fr",
+        From: "contact@ekherchi.fr",
+        Subject: "site emk: " + subject.value,
+        Body:
+          "name: " +
+          " " +
+          name.value +
+          "<br> " +
+          "email: " +
+          " " +
+          email.value +
+          "<br> " +
+          "message: " +
+          " " +
+          content.value,
       }).then(
-        message => alert("mail sent successfully")
+        (thanks.innerHTML = "<h2>Votre message est bien envoyé.<br>Merci !</h2>"),
+        mainFormDiv.appendChild(thanks)
       );
     }
-    
 
-    btnForm.addEventListener("click", sendEmail())
+    btnForm.addEventListener("click", function (e) {
+      e.preventDefault();
+      sendEmail();
+    });
   }
 };
 
