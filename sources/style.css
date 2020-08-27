@@ -163,10 +163,10 @@ header .nav .menu {
 
 #home__ill {
   margin: auto;
-  width: 60%;
+  width: 40%;
 }
 #home__ill--image {
-  width: 90%;
+  width: 80%;
 }
 #home__description {
   margin: 10px;
@@ -188,6 +188,7 @@ header .nav .menu {
   text-align: left;
   line-height: 1.5em;
   margin-bottom: 90px;
+  text-align: justify;
 }
 @media (max-width: 768px) {
   #home__description--text {
@@ -327,7 +328,6 @@ header .nav .menu {
   display: block;
   padding: 0;
   margin-bottom: 15px;
-  background-color: #fff;
   font-weight: 600;
 }
 #contactPage .mainDiv form .id {

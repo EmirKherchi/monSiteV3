@@ -1,9 +1,11 @@
 #home {
+
+ 
   &__ill {
     margin: auto;
-    width: 60%;
+    width: 40%;
     &--image {
-      width: 90%;
+      width: 80%;
     }
   }
   &__description {
@@ -25,6 +27,7 @@
       text-align: left;
       line-height: 1.5em;
       margin-bottom: 90px;
+      text-align: justify;
       @include md{
         width: 90%;
         font-size: 18px;
@@ -39,8 +42,6 @@
       padding: 1% 3%;
       font-weight: 600;
       transition: ease-in-out 300ms;
-     
-
       &:hover {
         color: $red;
         font-weight: 600;
