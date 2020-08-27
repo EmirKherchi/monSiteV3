@@ -58,7 +58,7 @@ const renderHome = () => {
     rightSideDescription.id = "home__description--text";
     rightSide.appendChild(rightSideDescription);
     rightSideDescription.textContent =
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vitae quam tempora praesentium natus fugiat, assumenda inventore consectetur veritatis officia, sit, quaerat ullam expedita quasi accusamus excepturi! Aut, accusamus iure.";
+      'Développeur web spécialisé et passionné JavaScript je vous invite à découvrir mon univers et mon travail disponible sur l’espace portfolio, vous pourrez ainsi percevoir une partie de mes projets. Si vous souhaitez discuter et êtes amateur de café, n’hésitez pas à utiliser le formulaire de contact.';
 
     const btnCv = document.createElement("a");
     btnCv.target = "_blank";
