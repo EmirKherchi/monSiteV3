@@ -1,6 +1,4 @@
 #home {
-
- 
   &__ill {
     margin: auto;
     width: 40%;
@@ -20,23 +18,28 @@
     margin: 10px;
     &--text {
       width: 50%;
-      font-size: 20px;
+      font-size: 18px;
       padding-top: 20px;
       display: block;
       margin: auto;
       text-align: left;
-      line-height: 1.5em;
+
       margin-bottom: 70px;
       text-align: justify;
-      @include md{
+      @include md {
         width: 90%;
         font-size: 18px;
       }
-      &--title{
+      & br {
+        display: block;
+        content: "";
+        margin-bottom: 15px;
+      }
+      &--title {
         color: $red;
         font-weight: 600;
         display: block;
-        margin-left: 26%;
+        margin-bottom: 30px;
       }
     }
     a {

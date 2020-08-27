@@ -181,12 +181,11 @@ header .nav .menu {
 }
 #home__description--text {
   width: 50%;
-  font-size: 20px;
+  font-size: 18px;
   padding-top: 20px;
   display: block;
   margin: auto;
   text-align: left;
-  line-height: 1.5em;
   margin-bottom: 70px;
   text-align: justify;
 }
@@ -196,11 +195,16 @@ header .nav .menu {
     font-size: 18px;
   }
 }
+#home__description--text br {
+  display: block;
+  content: "";
+  margin-bottom: 15px;
+}
 #home__description--text--title {
   color: #DB504A;
   font-weight: 600;
   display: block;
-  margin-left: 26%;
+  margin-bottom: 30px;
 }
 #home__description a {
   font-size: 1.5em;
