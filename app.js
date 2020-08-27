@@ -216,12 +216,18 @@ const renderContact = () => {
     btnForm.textContent = "Envoyer";
     divLabel.appendChild(btnForm);
 
+    //input to check n regex
+
+    const regexLettersOnly = /^[a-zA-Z]+$/;
+    const regexEmail = /^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/;
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const subject = document.getElementById("subject");
+    const content = document.getElementById("content");
+
     //function send form
     function sendEmail() {
-      const name = document.getElementById("name");
-      const email = document.getElementById("email");
-      const subject = document.getElementById("subject");
-      const content = document.getElementById("content");
       let thanks = document.createElement("h1");
       Email.send({
         SecureToken: "56be052d-0061-4712-ab5d-449c30d9dade",
@@ -243,13 +249,25 @@ const renderContact = () => {
       }).then(
         (thanks.innerHTML =
           "<h2>Votre message est bien envoyé.<br>Merci !</h2>"),
-        mainFormDiv.appendChild(thanks)
+        formContact.remove(),  
+        contactMainDiv.appendChild(thanks)
       );
+    }
+    function checkInput() {
+      if (regexLettersOnly.test(name.value) == false) {
+        alert("Veuillez informer votre Nom");
+      } else {
+        if (regexEmail.test(email.value) == false) {
+          alert("Veuillez renseigner votre adresse Email");
+        } else {
+          sendEmail();
+        }
+      }
     }
 
     btnForm.addEventListener("click", function (e) {
       e.preventDefault();
-      sendEmail();
+      checkInput();
     });
   }
 };
