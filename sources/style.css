@@ -187,7 +187,7 @@ header .nav .menu {
   margin: auto;
   text-align: left;
   line-height: 1.5em;
-  margin-bottom: 90px;
+  margin-bottom: 70px;
   text-align: justify;
 }
 @media (max-width: 768px) {
@@ -195,6 +195,12 @@ header .nav .menu {
     width: 90%;
     font-size: 18px;
   }
+}
+#home__description--text--title {
+  color: #DB504A;
+  font-weight: 600;
+  display: block;
+  margin-left: 26%;
 }
 #home__description a {
   font-size: 1.5em;

@@ -26,11 +26,17 @@
       margin: auto;
       text-align: left;
       line-height: 1.5em;
-      margin-bottom: 90px;
+      margin-bottom: 70px;
       text-align: justify;
       @include md{
         width: 90%;
         font-size: 18px;
+      }
+      &--title{
+        color: $red;
+        font-weight: 600;
+        display: block;
+        margin-left: 26%;
       }
     }
     a {

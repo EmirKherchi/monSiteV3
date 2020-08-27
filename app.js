@@ -1,5 +1,6 @@
 const welcome = document.getElementById("welcome");
 const logo = document.getElementById("logo");
+logo.textContent = "< emk />";
 
 const landingPage = document.getElementById("LandingPage");
 
@@ -57,8 +58,8 @@ const renderHome = () => {
     const rightSideDescription = document.createElement("p");
     rightSideDescription.id = "home__description--text";
     rightSide.appendChild(rightSideDescription);
-    rightSideDescription.textContent =
-      'Développeur web spécialisé et passionné JavaScript je vous invite à découvrir mon univers et mon travail disponible sur l’espace portfolio, vous pourrez ainsi percevoir une partie de mes projets. Si vous souhaitez discuter et êtes amateur de café, n’hésitez pas à utiliser le formulaire de contact.';
+    rightSideDescription.innerHTML =
+      '<span id="home__description--text--title">Bienvenue sur mon portfolio !</span><br>Développeur web spécialisé et passionné JavaScript je vous invite à découvrir mon univers et mon travail, vous pourrez ainsi percevoir une partie de mes projets.<br>Si vous souhaitez discuter et êtes amateur de café, n’hésitez pas à utiliser le formulaire de contact.<br> De plus, mon CV est disponible juste en dessous de ce texte... Bonne visite.';
 
     const btnCv = document.createElement("a");
     btnCv.target = "_blank";
@@ -163,15 +164,10 @@ const renderContact = () => {
     addSection("contactPage");
     const contactMainDiv = document.querySelector(".mainDiv");
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
-    //const contactPage = document.getElementById('contactPage');
-    //création du formulaire et du titre et ajout à main div
-    // const titleContact = document.createElement("h2");
-    //titleContact.textContent = "Contact";
     const formContact = document.createElement("form");
     formContact.classList.add("form");
 
     contactMainDiv.appendChild(formContact);
-    //contactPage.appendChild(titleContact);
 
     //création des inputs
     const mainFormDiv = document.createElement("div");
@@ -245,7 +241,8 @@ const renderContact = () => {
           " " +
           content.value,
       }).then(
-        (thanks.innerHTML = "<h2>Votre message est bien envoyé.<br>Merci !</h2>"),
+        (thanks.innerHTML =
+          "<h2>Votre message est bien envoyé.<br>Merci !</h2>"),
         mainFormDiv.appendChild(thanks)
       );
     }
@@ -268,15 +265,6 @@ window.addEventListener("load", function () {
         worksLink.classList.add("animli");
         return setTimeout(function () {
           contactLink.classList.add("animli");
-          return setTimeout(function () {
-            return setTimeout(function () {
-              logo.classList.remove("opac");
-              return setTimeout(function () {
-                logo.textContent = "< emk />";
-                logo.classList.add("opac");
-              }, 300);
-            }, 2000);
-          }, 100);
         }, 400);
       }, 300);
     }, 1000);
