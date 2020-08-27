@@ -63,7 +63,7 @@ const renderHome = () => {
 
     const btnCv = document.createElement("a");
     btnCv.target = "_blank";
-    btnCv.innerHTML = "Mon Cv en ligne";
+    btnCv.innerHTML = "Mon CV en ligne";
     btnCv.href = "https://emircv.netlify.app/";
     rightSide.appendChild(btnCv);
   }
