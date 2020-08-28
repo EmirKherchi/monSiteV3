@@ -269,6 +269,25 @@ const renderContact = () => {
       e.preventDefault();
       checkInput();
     });
+
+    const divSocialMedia = document.createElement('div');
+    divSocialMedia.classList.add('socialDiv');
+    contactMainDiv.appendChild(divSocialMedia);
+
+    const gitIcon = document.createElement('a');
+    gitIcon.classList.add("socialDiv__gitIcon");
+    gitIcon.innerHTML = '<i class="fab fa-github"></i>'; 
+    gitIcon.target = "_blank";
+    gitIcon.href = "https://github.com/EmirKherchi";
+    divSocialMedia.appendChild(gitIcon);
+    
+    const linkedinIcon = document.createElement('a');
+    linkedinIcon.classList.add("socialDiv__linkedinIcon");
+    linkedinIcon.innerHTML = '<i class="fab fa-linkedin"></i>'; 
+    linkedinIcon.target = "_blank";
+    linkedinIcon.href = "https://www.linkedin.com/in/emir-kherchi/";
+    divSocialMedia.appendChild(linkedinIcon);
+
   }
 };
 
