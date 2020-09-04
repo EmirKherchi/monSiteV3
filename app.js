@@ -108,7 +108,6 @@ const renderWorks = () => {
 
             imageJob.alt =
               "Image représentant le projet de emir développeur web front end";
-
             imageJob.src = this.image;
             titleJob.innerHTML = this.title;
 
@@ -118,27 +117,40 @@ const renderWorks = () => {
             const projectDiv = document.createElement("div");
             projectDiv.classList.add("projectDiv");
             workMainDiv.appendChild(projectDiv);
-            projectDiv.appendChild(imageJob);
+            projectDiv.style.background='url('+imageJob.src+')';
+            projectDiv.style.backgroundRepeat='no-repeat';
+            projectDiv.style.backgroundPosition="center";
+            projectDiv.style.backgroundSize="cover";
 
-            let elementsJob = [titleJob, imageJob, descriptionJob, linkJob];
-            let elementsToRemove = [titleJob, descriptionJob, linkJob];
-
-            projectDiv.addEventListener("mouseenter", function () {
+            let elementsJob = [titleJob,descriptionJob, linkJob];
+                       
               elementsJob.forEach((element) => {
                 projectDiv.appendChild(element);
-                element.classList.add("viewProjectUp");
-              });
-              projectDiv.classList.remove("transitionScaleOff");
-              projectDiv.classList.add("transitionScale");
+                element.classList.add('down')
 
-              projectDiv.addEventListener("mouseleave", function () {
-                projectDiv.classList.remove("transitionScale");
-                projectDiv.classList.add("transitionScaleOff");
-                elementsToRemove.forEach((element) => {
-                  projectDiv.removeChild(element);
-                });
+                projectDiv.addEventListener('mouseenter',function(){
+                  element.classList.remove("viewProjectDown");
+                  element.classList.add("viewProjectUp");
+                  projectDiv.style.background='url(none)';
+                  linkJob.style.opacity="1";
+                })
+                projectDiv.addEventListener('mouseleave',function(){
+                  element.classList.remove("viewProjectUp");
+                  element.classList.add("viewProjectDown");
+                  projectDiv.style.background='url('+imageJob.src+')';
+                  projectDiv.style.backgroundRepeat='no-repeat';
+                  projectDiv.style.backgroundPosition="center";
+                  projectDiv.style.backgroundSize="cover";
+                  linkJob.style.opacity="0";
+                })
+              ;
               });
-            });
+             
+            
+
+              
+              
+            
           }
         }
 

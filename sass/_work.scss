@@ -1,12 +1,19 @@
 @keyframes viewProjectUp {
   from {
-    transform: translateY(-200px);
+    transform: translateY(600px);
   }
   to {
     transform: translateY(0px);
   }
 }
-
+@keyframes viewProjectDown {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(600px);
+  }
+}
 .viewProjectUp {
   animation-duration: 0.6s;
   animation-name: viewProjectUp;
@@ -14,16 +21,18 @@
   animation-timing-function: linear;
 }
 
-.transitionScale {
-  transform: scale(1.1);
-  transition: all 0.6s linear;
-//voir pour presentation des project modal ?
-  z-index: 100000;
+.viewProjectDown {
+  animation-duration: 0.6s;
+  animation-name: viewProjectDown;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
-.transitionScaleOff {
-  transform: scale(1);
-  transition: all 0.6s linear;
+
+.down{
+  transform: translateY(600px)
 }
+
+
 
 #work {
   .mainDiv {
@@ -39,9 +48,8 @@
     }
     .projectDiv {
       flex: 1 0 25%;
-      background-color: #fff;
       margin: 3%;
-      padding: 1% 0 2% 0;
+      padding: 2% 0 2% 0;
       border-radius: 3px;
       -webkit-box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
       -moz-box-shadow: 4px 6px 17px -4px lighten($colortext, 50%);
@@ -56,10 +64,6 @@
     h2 {
       color: $red;
       font-weight: 600;
-    }
-    img {
-      width: 90%;
-      border-radius: 3px;
     }
     p {
       width: 70%;
@@ -77,7 +81,7 @@
       padding: 2% 5%;
       font-weight: 600;
       transition: ease-in-out 300ms;
-
+      opacity: 0;
       &:hover {
         color: $red;
         font-weight: 600;
