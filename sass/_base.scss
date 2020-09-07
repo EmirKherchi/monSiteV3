@@ -22,7 +22,6 @@ a {
   text-align: center;
   display: flex;
   justify-content: center;
-  opacity: 0;
 }
 .mainDiv {
   margin: auto;
@@ -31,6 +30,7 @@ a {
 @keyframes ZoomIn {
   from {
     transform: scale(0);
+    opacity: 0;
   }
   to {
     transform: scale(1);
@@ -39,7 +39,24 @@ a {
 }
 
 .zoomIn {
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-name: ZoomIn;
   animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+@keyframes fadeOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.fadeOut {
+  animation-duration: 0.6s;
+  animation-name: fadeOut;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
 }

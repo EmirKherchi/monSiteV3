@@ -1,9 +1,7 @@
 const welcome = document.getElementById("welcome");
 const logo = document.getElementById("logo");
 logo.textContent = "< emk />";
-
 const landingPage = document.getElementById("LandingPage");
-
 const worksLink = document.getElementById("works");
 const contactLink = document.getElementById("contact");
 
@@ -23,7 +21,6 @@ const addSection = (sectionName) => {
 };
 
 //pages render
-
 const renderHome = () => {
   const getSections = document.querySelector("section");
   if (getSections.id === "home") {
@@ -75,7 +72,7 @@ const renderWorks = () => {
   } else {
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
-    logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
+    logo.innerHTML = '<i class="fas fa-angle-left"></i> Accueil';
 
     //fetch
 
@@ -168,7 +165,7 @@ const renderContact = () => {
   } else {
     addSection("contactPage");
     const contactMainDiv = document.querySelector(".mainDiv");
-    logo.innerHTML = '<i class="fas fa-angle-left"></i> Home';
+    logo.innerHTML = '<i class="fas fa-angle-left"></i> Accueil';
     const formContact = document.createElement("form");
     formContact.classList.add("form");
 
@@ -261,10 +258,14 @@ const renderContact = () => {
     function checkInput() {
       if (regexLettersOnly.test(name.value) == false) {
         alert("Veuillez informer votre Nom");
+        name.classList.add('inputError');
       } else {
+        name.classList.remove('inputError');
         if (regexEmail.test(email.value) == false) {
           alert("Veuillez renseigner votre adresse Email");
+          email.classList.add('inputError');
         } else {
+          email.classList.remove('inputError');
           sendEmail();
         }
       }
@@ -295,6 +296,15 @@ const renderContact = () => {
   }
 };
 
+const fadeOutMainDiv = (oldSectionName) => {
+  const oldSection = document.querySelector("section");
+  if (oldSection.id === oldSectionName) {
+    console.log("nothing happend");
+  } else {
+    oldSection.classList.add("fadeOut");
+  }
+};
+
 //page loading
 window.addEventListener("load", function () {
   setTimeout(function () {
@@ -314,18 +324,26 @@ window.addEventListener("load", function () {
 
 //events
 logo.addEventListener("click", function (e) {
-  e.preventDefault;
-  renderHome();
+  e.preventDefault();
+  fadeOutMainDiv("home");
+  setTimeout(function () {
+    renderHome();
+  }, 600);
   logo.textContent = "< emk />";
 });
 
 worksLink.addEventListener("click", function (e) {
-  e.preventDefault;
-  renderWorks();
-  //logo.textContent = "< Home";
+  e.preventDefault();
+  fadeOutMainDiv("work");
+  setTimeout(function () {
+    renderWorks();
+  }, 600);
 });
 
 contactLink.addEventListener("click", function (e) {
-  e.preventDefault;
-  renderContact();
+  e.preventDefault();
+  fadeOutMainDiv("contactPage");
+  setTimeout(function () {
+    renderContact();
+  }, 600);
 });
