@@ -117,40 +117,33 @@ const renderWorks = () => {
             const projectDiv = document.createElement("div");
             projectDiv.classList.add("projectDiv");
             workMainDiv.appendChild(projectDiv);
-            projectDiv.style.background='url('+imageJob.src+')';
-            projectDiv.style.backgroundRepeat='no-repeat';
-            projectDiv.style.backgroundPosition="center";
-            projectDiv.style.backgroundSize="cover";
 
-            let elementsJob = [titleJob,descriptionJob, linkJob];
-                       
-              elementsJob.forEach((element) => {
-                projectDiv.appendChild(element);
-                element.classList.add('down')
+            const projectDivStyle = () => {
+              projectDiv.style.background = "url(" + imageJob.src + ")";
+              projectDiv.style.backgroundRepeat = "no-repeat";
+              projectDiv.style.backgroundPosition = "center";
+              projectDiv.style.backgroundSize = "cover";
+            };
+            projectDivStyle();
+            let elementsJob = [titleJob, descriptionJob, linkJob];
 
-                projectDiv.addEventListener('mouseenter',function(){
-                  element.classList.remove("viewProjectDown");
-                  element.classList.add("viewProjectUp");
-                  projectDiv.style.background='url(none)';
-                  linkJob.style.opacity="1";
-                })
-                projectDiv.addEventListener('mouseleave',function(){
-                  element.classList.remove("viewProjectUp");
-                  element.classList.add("viewProjectDown");
-                  projectDiv.style.background='url('+imageJob.src+')';
-                  projectDiv.style.backgroundRepeat='no-repeat';
-                  projectDiv.style.backgroundPosition="center";
-                  projectDiv.style.backgroundSize="cover";
-                  linkJob.style.opacity="0";
-                })
-              ;
+            elementsJob.forEach((element) => {
+              projectDiv.appendChild(element);
+              element.classList.add("down");
+
+              projectDiv.addEventListener("mouseenter", function () {
+                element.classList.remove("viewProjectDown");
+                element.classList.add("viewProjectUp");
+                projectDiv.style.background = "url(none)";
+                linkJob.style.opacity = "1";
               });
-             
-            
-
-              
-              
-            
+              projectDiv.addEventListener("mouseleave", function () {
+                element.classList.remove("viewProjectUp");
+                element.classList.add("viewProjectDown");
+                projectDivStyle();
+                linkJob.style.opacity = "0";
+              });
+            });
           }
         }
 
@@ -261,7 +254,7 @@ const renderContact = () => {
       }).then(
         (thanks.innerHTML =
           "<h2>Votre message est bien envoyé.<br>Merci !</h2>"),
-        formContact.remove(),  
+        formContact.remove(),
         contactMainDiv.appendChild(thanks)
       );
     }
@@ -282,24 +275,23 @@ const renderContact = () => {
       checkInput();
     });
 
-    const divSocialMedia = document.createElement('div');
-    divSocialMedia.classList.add('socialDiv');
+    const divSocialMedia = document.createElement("div");
+    divSocialMedia.classList.add("socialDiv");
     contactMainDiv.appendChild(divSocialMedia);
 
-    const gitIcon = document.createElement('a');
+    const gitIcon = document.createElement("a");
     gitIcon.classList.add("socialDiv__gitIcon");
-    gitIcon.innerHTML = '<i class="fab fa-github"></i>'; 
+    gitIcon.innerHTML = '<i class="fab fa-github"></i>';
     gitIcon.target = "_blank";
     gitIcon.href = "https://github.com/EmirKherchi";
     divSocialMedia.appendChild(gitIcon);
-    
-    const linkedinIcon = document.createElement('a');
+
+    const linkedinIcon = document.createElement("a");
     linkedinIcon.classList.add("socialDiv__linkedinIcon");
-    linkedinIcon.innerHTML = '<i class="fab fa-linkedin"></i>'; 
+    linkedinIcon.innerHTML = '<i class="fab fa-linkedin"></i>';
     linkedinIcon.target = "_blank";
     linkedinIcon.href = "https://www.linkedin.com/in/emir-kherchi/";
     divSocialMedia.appendChild(linkedinIcon);
-
   }
 };
 
