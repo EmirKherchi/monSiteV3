@@ -5,6 +5,23 @@ const landingPage = document.getElementById("LandingPage");
 const worksLink = document.getElementById("works");
 const contactLink = document.getElementById("contact");
 
+
+const fetchAllProjects = () =>{
+  fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read")
+  .then(function (response) {
+    if (response.status !== 200) {
+      console.log("erreur: " + response.status);
+    }
+    return response.json();
+  })
+  .then(function (data) {
+    localStorage.clear();
+    localStorage.setItem("projects", JSON.stringify(data));
+    console.log('all projects fetch from BDD')
+  })
+}
+
+
 //Remove // add section
 const addSection = (sectionName) => {
   const getSections = document.querySelector("section");
@@ -74,18 +91,9 @@ const renderWorks = () => {
     const workMainDiv = document.querySelector(".mainDiv");
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Accueil';
 
-    //fetch
+    //Get projects allready fetch in local storage.
 
-    fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read")
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log("erreur: " + response.status);
-        }
-        return response.json();
-      })
-      .then(function (data) {
-        //console.log(data);
-        const projets = data;
+        const projets = JSON.parse(localStorage.getItem("projects"));;
 
         class Job {
           constructor(title, image, description, link) {
@@ -131,7 +139,7 @@ const renderWorks = () => {
               projectDiv.addEventListener("mouseenter", function () {
                 element.classList.remove("viewProjectDown");
                 element.classList.add("viewProjectUp");
-                projectDiv.style.background = "url(none)";
+                projectDiv.style.background = "url('')";
                 linkJob.style.opacity = "1";
               });
               projectDiv.addEventListener("mouseleave", function () {
@@ -154,7 +162,7 @@ const renderWorks = () => {
         for (let i = 0; i < thisProjet.length; i++) {
           thisProjet[i].render();
         }
-      });
+      
   }
 };
 
@@ -308,6 +316,7 @@ const fadeOutMainDiv = (oldSectionName) => {
 //page loading
 window.addEventListener("load", function () {
   setTimeout(function () {
+    fetchAllProjects();
     welcome.classList.add("ZoomOut");
     return setTimeout(function () {
       logo.classList.add("opac");
