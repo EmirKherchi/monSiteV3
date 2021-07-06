@@ -67,41 +67,42 @@ const renderHome = () => {
     rightSideTitle.id = "home__description--title";
     rightSide.appendChild(rightSideTitle);
     rightSideTitle.innerHTML =
-      "Emir Kherchi - <span>Développeur Front-end</span>";
+      "Emir Kherchi <br> <span>Développeur Front-end Vue.js</span>";
 
     const rightSideDescription = document.createElement("p");
     rightSideDescription.id = "home__description--text";
     rightSide.appendChild(rightSideDescription);
     rightSideDescription.innerHTML =
-      '<span id="home__description--text--title">Bienvenue sur mon portfolio !</span><br>Développeur web spécialisé et passionné JavaScript je vous invite à découvrir mon univers et mon travail, vous pourrez ainsi percevoir une partie de mes projets.<br>Si vous souhaitez discuter et êtes amateur de café, n’hésitez pas à utiliser le formulaire de contact.<br> De plus, mon CV est disponible juste en dessous de ce texte... Bonne visite.';
-
-    const btnCv = document.createElement("a");
-    btnCv.target = "_blank";
-    btnCv.innerHTML = "Mon CV en ligne";
-    btnCv.href = "https://emircv.netlify.app/";
-    rightSide.appendChild(btnCv);
+      '<span id="home__description--text--title">Bienvenue sur mon portfolio !</span><br>Développeur web spécialisé et passionné JavaScript je vous invite à découvrir mon univers et mon travail, vous pourrez ainsi percevoir une partie de mes projets.<br>Si vous souhaitez discuter et êtes amateur de café, n’hésitez pas à utiliser le formulaire de contact. Bonne visite.';
   }
 };
 const renderWorks = () => {
+
   const getSections = document.querySelector("section");
+
   if (getSections.id === "work") {
+
     console.log("nothing happend");
   } else {
+
     addSection("work");
     const workMainDiv = document.querySelector(".mainDiv");
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Accueil';
 
-    //Get projects allready fetch in local storage.
+      //Get projects allready fetch in local storage.
 
-        const projets = JSON.parse(localStorage.getItem("projects"));;
+        const projets = JSON.parse(localStorage.getItem("projects"));
+        console.log(typeof(projets))
 
         class Job {
+
           constructor(title, image, description, link) {
             this.title = title;
             this.image = image;
             this.description = description;
             this.link = link;
           }
+
           render() {
             let titleJob = document.createElement("h2");
             let descriptionJob = document.createElement("p");
@@ -129,7 +130,9 @@ const renderWorks = () => {
               projectDiv.style.backgroundPosition = "center";
               projectDiv.style.backgroundSize = "cover";
             };
+
             projectDivStyle();
+
             let elementsJob = [titleJob, descriptionJob, linkJob];
 
             elementsJob.forEach((element) => {
@@ -147,9 +150,13 @@ const renderWorks = () => {
                 element.classList.add("viewProjectDown");
                 projectDivStyle();
                 linkJob.style.opacity = "0";
+
               });
+
             });
+
           }
+
         }
 
         const thisProjet = projets.map(
