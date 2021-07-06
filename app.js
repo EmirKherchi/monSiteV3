@@ -93,7 +93,8 @@ const renderWorks = () => {
 
     //Get projects allready fetch in local storage.
 
-        const projets = JSON.parse(localStorage.getItem("projects"));;
+        const projets = JSON.parse(localStorage.getItem("projects"));
+        console.log(typeof(projets))
 
         class Job {
           constructor(title, image, description, link) {
