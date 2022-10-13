@@ -14,9 +14,12 @@ const fetchAllProjects = () => {
       }
       return response.json();
     })
-    .then(function (data) {
+    .then(function (res) {
+      const data = res.sort(function (a, b) {
+        return (b.id - a.id);
+      });
       localStorage.clear();
-      localStorage.setItem("projects", JSON.stringify(data.reverse()));
+      localStorage.setItem("projects", JSON.stringify(data));
       console.log('all projects fetch from BDD')
     })
 }
