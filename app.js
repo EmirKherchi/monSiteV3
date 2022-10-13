@@ -6,19 +6,19 @@ const worksLink = document.getElementById("works");
 const contactLink = document.getElementById("contact");
 
 
-const fetchAllProjects = () =>{
+const fetchAllProjects = () => {
   fetch("https://us-central1-emk-api.cloudfunctions.net/app/api/read")
-  .then(function (response) {
-    if (response.status !== 200) {
-      console.log("erreur: " + response.status);
-    }
-    return response.json();
-  })
-  .then(function (data) {
-    localStorage.clear();
-    localStorage.setItem("projects", JSON.stringify(data));
-    console.log('all projects fetch from BDD')
-  })
+    .then(function (response) {
+      if (response.status !== 200) {
+        console.log("erreur: " + response.status);
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      localStorage.clear();
+      localStorage.setItem("projects", JSON.stringify(data.reverse()));
+      console.log('all projects fetch from BDD')
+    })
 }
 
 
@@ -89,87 +89,87 @@ const renderWorks = () => {
     const workMainDiv = document.querySelector(".mainDiv");
     logo.innerHTML = '<i class="fas fa-angle-left"></i> Accueil';
 
-      //Get projects allready fetch in local storage.
+    //Get projects allready fetch in local storage.
 
-        const projets = JSON.parse(localStorage.getItem("projects"));
-        console.log(typeof(projets))
+    const projets = JSON.parse(localStorage.getItem("projects"));
+    console.log(typeof (projets))
 
-        class Job {
+    class Job {
 
-          constructor(title, image, description, link) {
-            this.title = title;
-            this.image = image;
-            this.description = description;
-            this.link = link;
-          }
+      constructor(title, image, description, link) {
+        this.title = title;
+        this.image = image;
+        this.description = description;
+        this.link = link;
+      }
 
-          render() {
-            let titleJob = document.createElement("h2");
-            let descriptionJob = document.createElement("p");
-            let linkJob = document.createElement("a");
-            linkJob.target = "_blank";
-            linkJob.innerHTML = "Voir le projet";
+      render() {
+        let titleJob = document.createElement("h2");
+        let descriptionJob = document.createElement("p");
+        let linkJob = document.createElement("a");
+        linkJob.target = "_blank";
+        linkJob.innerHTML = "Voir le projet";
 
-            let imageJob = document.createElement("img");
+        let imageJob = document.createElement("img");
 
-            imageJob.alt =
-              "Image représentant le projet de emir développeur web front end";
-            imageJob.src = this.image;
-            titleJob.innerHTML = this.title;
+        imageJob.alt =
+          "Image représentant le projet de emir développeur web front end";
+        imageJob.src = this.image;
+        titleJob.innerHTML = this.title;
 
-            descriptionJob.innerHTML = this.description;
-            linkJob.href = this.link;
+        descriptionJob.innerHTML = this.description;
+        linkJob.href = this.link;
 
-            const projectDiv = document.createElement("div");
-            projectDiv.classList.add("projectDiv");
-            workMainDiv.appendChild(projectDiv);
+        const projectDiv = document.createElement("div");
+        projectDiv.classList.add("projectDiv");
+        workMainDiv.appendChild(projectDiv);
 
-            const projectDivStyle = () => {
-              projectDiv.style.background = "url(" + imageJob.src + ")";
-              projectDiv.style.backgroundRepeat = "no-repeat";
-              projectDiv.style.backgroundPosition = "center";
-              projectDiv.style.backgroundSize = "cover";
-            };
+        const projectDivStyle = () => {
+          projectDiv.style.background = "url(" + imageJob.src + ")";
+          projectDiv.style.backgroundRepeat = "no-repeat";
+          projectDiv.style.backgroundPosition = "center";
+          projectDiv.style.backgroundSize = "cover";
+        };
 
+        projectDivStyle();
+
+        let elementsJob = [titleJob, descriptionJob, linkJob];
+
+        elementsJob.forEach((element) => {
+          projectDiv.appendChild(element);
+          element.classList.add("down");
+
+          projectDiv.addEventListener("mouseenter", function () {
+            element.classList.remove("viewProjectDown");
+            element.classList.add("viewProjectUp");
+            projectDiv.style.background = "url('')";
+            linkJob.style.opacity = "1";
+          });
+          projectDiv.addEventListener("mouseleave", function () {
+            element.classList.remove("viewProjectUp");
+            element.classList.add("viewProjectDown");
             projectDivStyle();
+            linkJob.style.opacity = "0";
 
-            let elementsJob = [titleJob, descriptionJob, linkJob];
+          });
 
-            elementsJob.forEach((element) => {
-              projectDiv.appendChild(element);
-              element.classList.add("down");
+        });
 
-              projectDiv.addEventListener("mouseenter", function () {
-                element.classList.remove("viewProjectDown");
-                element.classList.add("viewProjectUp");
-                projectDiv.style.background = "url('')";
-                linkJob.style.opacity = "1";
-              });
-              projectDiv.addEventListener("mouseleave", function () {
-                element.classList.remove("viewProjectUp");
-                element.classList.add("viewProjectDown");
-                projectDivStyle();
-                linkJob.style.opacity = "0";
+      }
 
-              });
+    }
 
-            });
+    const thisProjet = projets.map(
+      ({ name, imageUrl, description, link }) =>
+        new Job(name, imageUrl, description, link)
+    );
 
-          }
+    //application de la methode de classe pour toutes les instances
 
-        }
+    for (let i = 0; i < thisProjet.length; i++) {
+      thisProjet[i].render();
+    }
 
-        const thisProjet = projets.map(
-          ({ name, imageUrl, description, link }) =>
-            new Job(name, imageUrl, description, link)
-        );
-
-        //application de la methode de classe pour toutes les instances
-
-        for (let i = 0; i < thisProjet.length; i++) {
-          thisProjet[i].render();
-        }
-      
   }
 };
 
